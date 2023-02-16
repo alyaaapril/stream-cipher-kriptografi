@@ -106,12 +106,12 @@ btn_decrypt = Button(window, text="Decrypt message!", width = "15", font = ('ari
 btn_decrypt.grid(row=8, column=0)
 
 #Save as File
-btn_save = Button(window, text="Save as a file", width = "10", height = "2", font = ('arial ', 9), fg="white", bg="#251F4A", command=save_file)
-btn_save.grid(row=11, columnspan=3)
+btn_save = Button(window, text="Save as a file", width = "20", height = "5", font = ('arial ', 9), fg="white", bg="#251F4A", command=save_file)
+btn_save.grid(row=10,column=1)
 
 #Clear
 btn_clear = Button(window, height =1 , width=10, text="Clear result", bg="#B8B8C7", fg="black", font = ('arial ', 9), command=clear_text)
-btn_clear.grid(row=12, columnspan=3, pady=2)
+btn_clear.grid(row=11, column=0)
 
 window.mainloop()
 

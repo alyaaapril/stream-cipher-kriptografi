@@ -1,43 +1,20 @@
 from RC4 import *
-import random
-
-S_array = generate_S_array()
-print('S array : ')
-print(S_array)
-print("\n")
 
 plaintext = 'apa kabar'
 key = 'key' #[107, 101, 121]
-T_array = translateToASCII(key)
 
-print('Hasil pengulangan key (T array) : ')
-print(repeat_T_array_key(len(S_array), T_array))
-print("\n")
+print('Coba Enkripsi :')
+S_array = generate_S_array()
+T_array = str_to_ascii(key)
+KSA_result = KSA(S_array, T_array)
+encrypt = modifeidRC4Encryption_text(plaintext, KSA_result)
+print(encrypt)
 
-print('Hasil permutasi key dengan KSA : ')
-swap = KSA(S_array, T_array)
-print(swap)
-print("\n")
-
-print('Keystream PRGA: ')
-PRGA(len(plaintext), swap)
-keyStream = PRGA(len(plaintext), swap)
-print(keyStream)
-print("\n")
-
-plaintextbytes = translateToASCII(plaintext)
-keybytes = keyStream
-
-print('Plain text dalam bytes: ')
-print(plaintextbytes)
-print("\n")
-
-print('Hasil enkripsi: ')
-encryption = crypt(plaintextbytes, keybytes)
-print(encryption)
-print("\n")
-
-print('Hasil dekripsi: ')
-decryption = crypt(encryption, keybytes)
-print(decryption)
-print("\n")
+print('Coba Dekripsi :')
+key = 'key'
+T_array = str_to_ascii(key)
+S_array = generate_S_array()
+KSA_result = KSA(S_array, T_array)
+decrypt = modifeidRC4Decryption_text(encrypt, KSA_result)
+#decrypt = modifeidRC4Decryption_text('ðÝ«º', KSA_result)
+print(decrypt)
