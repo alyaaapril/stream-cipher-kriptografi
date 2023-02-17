@@ -32,8 +32,11 @@ def open_file():
     # Change label contents
     print(filename)
     # Read isi file
-    #entry_text = readFile(filename)
-    entry_message.insert(END, os.path.abspath(filename)) # get the path
+    if var.get() == 1:
+        entry_text = readFile(filename)
+        entry_message.insert(END, entry_text)
+    elif var.get() == 2:
+        entry_message.insert(END, os.path.abspath(filename)) # get the path
     filename.close()
 
 def save_file():
