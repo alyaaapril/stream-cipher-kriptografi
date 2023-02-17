@@ -9,5 +9,5 @@ Parogram ini merupakan gabungan dari algoritma dasar RC4 yang dimodifikasi dan d
 3. jalankan file ***guiHome.py***
  
 ## Creator :
-Alya Apriliyanti 	/ 18220050
+Alya Apriliyanti 	/ 18220050\
 Siti Adira Ramadhani	 /  18220094
