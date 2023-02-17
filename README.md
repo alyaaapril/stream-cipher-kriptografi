@@ -5,8 +5,8 @@ Parogram ini merupakan gabungan dari algoritma dasar RC4 yang dimodifikasi dan d
 
 ## Cara menjalankan progam Modified RC4 with Extended Videnere Cipher
 1. Clone github
-2. Ganti directory pada folder **stream-cipher-kriptografi**
-3. jalankan file **guiHome.py**
+2. Ganti directory pada folder ***stream-cipher-kriptografi***
+3. jalankan file ***guiHome.py***
  
 ## Creator :
 Alya Apriliyanti 	/ 18220050
