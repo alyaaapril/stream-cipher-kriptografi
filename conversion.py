@@ -13,9 +13,14 @@ def str_to_binary(str):
     for i in range (len(str)):
         binary = format(ord(str[i]), 'b')
         binary_string.append(binary)
-    #print(type(binary))
-    #binary_string = ' '.join(format(ord(item), 'b') for item in Str)
     return binary_string
+
+def binary_to_str(text):
+    chr_string = []
+    for i in range (len(text)):
+        char = chr(int(text[i], base=10))
+        chr_string.append(char)
+    return ("".join(chr_string))
 
 def string_to_base64(str):
     #pengecekan : https://calculla.com/base64_encoder
@@ -31,19 +36,3 @@ def base64_to_str(str):
     str_message = b.decode('utf-8')
 
     return str_message
-
-
-'''
-key = 'key' #[107, 101, 121]
-T_array = str_to_ascii(key)
-print(T_array)
-
-binaryKey = str_to_binary(key)
-print(binaryKey)
-
-base64key = string_to_base64(key)
-print(base64key)
-
-message = base64_to_str(base64key)
-print(message)
-'''

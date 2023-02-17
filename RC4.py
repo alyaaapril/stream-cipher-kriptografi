@@ -114,7 +114,7 @@ def modifeidRC4_Encryption_text(plaintext, KSA_result):
     keystream = PRGA(plaintext, KSA_result)
     # LFSR-kan hasil PRGA
     lfsr_permutation = LFSR(len(plaintext), keystream) # panjang plaintext dan encryptedText sama so, aman
-    print(f'proses lfsr dari prga selesai dengan nilai {lfsr_permutation}')
+    print(f'proses lfsr enkripsi dari prga selesai dengan nilai {lfsr_permutation}')
 
     cipher = encryptExtendedVigenereCipher(plaintext, lfsr_permutation)
     return cipher
@@ -128,7 +128,7 @@ def modifeidRC4_Decryption_text(encryptedtext, KSA_result):
     keystream = PRGA(encryptedtext, KSA_result)
     # LFSR-kan hasil PRGA
     lfsr_permutation = LFSR(len(encryptedtext), keystream) # panjang plaintext dan encryptedText sama so, aman
-    print(f'proses lfsr dari prga selesai dengan nilai {lfsr_permutation}')
+    print(f'proses lfsr dekripsi dari prga selesai dengan nilai {lfsr_permutation}')
   
     decrypt = decryptExtendedVigenereCipher(encryptedtext, lfsr_permutation)
     return decrypt
