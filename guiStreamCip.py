@@ -54,10 +54,10 @@ def clear_text():
 
 # Encryption
 
-def encrypt_message(plaintext, cipher_matrix):
+def encrypt_message(plain, key):
     pass
 
-def decrypt_message(ciphertext, cipher_matrix):
+def decrypt_message(cipher, key):
     pass
 
 

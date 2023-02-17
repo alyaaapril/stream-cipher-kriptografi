@@ -10,8 +10,9 @@ def readFile(filename):
         exit()
 
 def writeFile(filename, text):
+    # Prosedur menyimpan file ke folder outputFile
     try:
-        f = open(filename, "w")
+        f = open("outputFile/" + filename, "w")
         f.write(text)
         f.close()
     except:
@@ -25,15 +26,14 @@ def readBinaryFile(filename):
         f.close()
         return file_content
     except:
-        #print('File not found and can not be opened:', filename)
         exit()
     
 
 def writeBinaryFile(filename, text):
+    # Prosedur menyimpan file ke folder outputFile
     try:
-        f = open(filename, "wb")
+        f = open("outputFile/" + filename, "wb")
         f.write(text)
         f.close()
     except:
-        #print('File not found and can not be opened:', filename)
         exit()
