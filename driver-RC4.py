@@ -1,20 +1,19 @@
 from RC4 import *
+from conversion import *
+from extendedVigenereCipher import *
 
 plaintext = 'apa kabar'
 key = 'key' #[107, 101, 121]
 
-print('Coba Enkripsi :')
-S_array = generate_S_array()
-T_array = str_to_ascii(key)
-KSA_result = KSA(S_array, T_array)
-encrypt = modifeidRC4Encryption_text(plaintext, KSA_result)
+S_array = generate_S_array() #256
+T_array = str_to_ascii(key) # 3
+KSA_result = KSA(S_array, T_array) #256
+print("Enkripsi :")
+encrypt = modifeidRC4_Encryption_text(plaintext, KSA_result)
 print(encrypt)
 
-print('Coba Dekripsi :')
-key = 'key'
-T_array = str_to_ascii(key)
-S_array = generate_S_array()
+S_array = generate_S_array() #256
+T_array = str_to_ascii(key) # 3
 KSA_result = KSA(S_array, T_array)
-decrypt = modifeidRC4Decryption_text(encrypt, KSA_result)
-#decrypt = modifeidRC4Decryption_text('ðÝ«º', KSA_result)
-print(decrypt)
+print("Dekripsi :")
+print(modifeidRC4_Decryption_text(encrypt, KSA_result))

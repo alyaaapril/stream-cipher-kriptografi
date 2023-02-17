@@ -1,5 +1,4 @@
-import fileOperation
-from pathlib import Path
+# File Extended Vigenere Cipher
 
 def isEqualLength(plaintext, key):
     # input : plaintext(str), key(str)
@@ -10,7 +9,7 @@ def isEqualLength(plaintext, key):
 
 def repeatKey(plaintextLength, key) :
     # input : plaintextLength(integer), key(str)
-    key = list(key)
+    #key = list(key)
     actualKey = []
     for i in (range(plaintextLength)):
         actualKey.append(key[i % len(key)])
@@ -20,17 +19,18 @@ def repeatKey(plaintextLength, key) :
 def encryptExtendedVigenereCipher(plaintext, key):
     # input : plaintext(string 'char ASCII'), key(list of 'integer')
     # output : string 'char ASCII'
+    #print(f"panjang kunci : {len(key)}")
+    #print(f"panjang plaintext : {len(plaintext)}")
     encryptedText = []
 
     plaintext = list(plaintext)
-
+    
     if (not(isEqualLength(plaintext, key))):
         key = repeatKey(len(plaintext), key)
+    #print(f"panjang kunci sesudah diulang: {len(key)}")
    
     for i in range (len(plaintext)):
-        asciiText = ord(plaintext[i])
-        asciiKey  = key[i]
-        encryptedValue = "" + chr(((asciiText + asciiKey) % 256) )
+        encryptedValue = "" + chr((ord(plaintext[i]) + key[i]) % 256)
         encryptedText.append(encryptedValue)
     return("".join(encryptedText))
 
@@ -38,7 +38,6 @@ def decryptExtendedVigenereCipher(encryptedText, key):
     # input : encryptedtext(string 'char ASCII'), key(list of integer)
     # output : string 'char ASCII'
     decryptedText = []
-
     encryptedText = list(encryptedText)
 
     if (not(isEqualLength(encryptedText, key))):
@@ -48,25 +47,3 @@ def decryptExtendedVigenereCipher(encryptedText, key):
         decryptedValue ="" + chr((ord(encryptedText[i]) - (key[i]) + 256) % 256)
         decryptedText.append(decryptedValue)
     return("".join(decryptedText))
-
-'''
-def encryptBinaryExtendedVigenereCipher(pathFile, key):
-    # input : file, key(list of integer)
-    # output : file
-    f = fileOperation.readBinaryFile(pathFile)
-    binary = f.decode("ISO-8859-1") # decode ke string of 'char'
-    encryptedText = encryptExtendedVigenereCipher(binary, key) # enkripsi dengan fungsi enkripsi 256 ASCII
-    file_extension = Path(pathFile).suffix
-    fileOperation.writeBinaryFile(f"encryption{file_extension}", encryptedText.encode("ISO-8859-1")) # ubah kembali file ke file extension yang sesuai
-    print(f" Nama file enkripsi adalah encryption{file_extension}\n")
- 
-def decryptBinaryExtendedVigenereCipher(pathFile, key):
-    # input : file, key(list of integer)
-    # output : file
-    f = fileOperation.readBinaryFile(pathFile) 
-    binary = f.decode("ISO-8859-1") # decode ke string of 'char'
-    decryptedText = decryptExtendedVigenereCipher(binary, key) # dekripsi dengan fungsi enkripsi 256 ASCII
-    file_extension = Path(pathFile).suffix
-    fileOperation.writeBinaryFile(f"decryption{file_extension}", decryptedText.encode("ISO-8859-1")) # ubah kembali file ke file extension yang sesuai
-    print(f" Nama file enkripsi adalah encryption{file_extension}\n")
-'''

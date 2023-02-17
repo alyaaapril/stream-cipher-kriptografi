@@ -17,13 +17,6 @@ def str_to_binary(str):
     #binary_string = ' '.join(format(ord(item), 'b') for item in Str)
     return binary_string
 
-'''
-def string_to_base64(str): # pas di cek pakai kalkulator ga valid
-    string = base64.b64encode(bytes("string", 'utf-8'))
-    print('hasil encode ke bytes utf-8:', string)
-    return (string.decode("utf-8"))
-'''
-
 def string_to_base64(str):
     #pengecekan : https://calculla.com/base64_encoder
     
@@ -31,8 +24,6 @@ def string_to_base64(str):
     base64_str = b.decode('utf-8') # convert bytes to string
     
     return base64_str
-
-   
 
 def base64_to_str(str):
     #pengecekan : https://calculla.com/base64_encoder
