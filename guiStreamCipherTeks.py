@@ -47,6 +47,7 @@ def clear_messageKey():
 
 def clear_text():
     text_entry1.delete('1.0', END)
+    text_entry2.delete('1.0', END)
 
 def click_back():
     from guiHome import mainPage
