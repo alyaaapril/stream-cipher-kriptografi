@@ -58,23 +58,23 @@ def KSA(S_array, T_array):
         S_array[swap_index] = temp
     return S_array
 
-def LFSR(jumlah_permutasi, KSA_result):
+def LFSR(jumlah_permutasi, PRGA_result):
     # input : jumlah_permutasi(int), KSA_result(list of 'int')
     # fungsi : generate keystream sepanjang plaintext
     # output : list 'int'
 
     array_keluaran = []
     for i in range(jumlah_permutasi):
-        lengthArray = len(KSA_result)
+        lengthArray = len(PRGA_result)
         
         target_index1 = 0 #i % lengthArray
         target_index2 = lengthArray-1 #lengthArray-(i % lengthArray)-1
         
-        hasil_XOR = KSA_result[target_index1] ^ KSA_result[target_index2]
-        KSA_result.insert(0, hasil_XOR) # tambahkan hasil XOR sbg elemen pertama
+        hasil_XOR = PRGA_result[target_index1] ^ PRGA_result[target_index2]
+        PRGA_result.insert(0, hasil_XOR) # tambahkan hasil XOR sbg elemen pertama
 
-        bit_keluaran = KSA_result[lengthArray-1] #lengthArray-(i % (lengthArray))-1
-        KSA_result.pop() # buang elemen terakhir
+        bit_keluaran = PRGA_result[lengthArray-1] #lengthArray-(i % (lengthArray))-1
+        PRGA_result.pop() # buang elemen terakhir
 
         array_keluaran.append(bit_keluaran)
 

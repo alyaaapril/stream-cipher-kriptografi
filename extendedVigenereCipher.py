@@ -19,8 +19,6 @@ def repeatKey(plaintextLength, key) :
 def encryptExtendedVigenereCipher(plaintext, key):
     # input : plaintext(string 'char ASCII'), key(list of 'integer')
     # output : string 'char ASCII'
-    #print(f"panjang kunci : {len(key)}")
-    #print(f"panjang plaintext : {len(plaintext)}")
     encryptedText = []
 
     plaintext = list(plaintext)
