@@ -1,3 +1,4 @@
+import os
 import sys
 import string
 from tkinter import *
@@ -16,7 +17,7 @@ sys.path.append(r"../")
 global window
 window = Tk()
 window.title("My Own Stream Cipher")
-window.geometry('800x650')
+window.geometry('800x550')
 window.configure(bg="#E0E1E9")
 
 
@@ -30,8 +31,9 @@ def open_file():
       
     # Change label contents
     print(filename)
-    entry_text = readFile(filename)
-    entry_message.insert(END, entry_text)
+    # Read isi file
+    #entry_text = readFile(filename)
+    entry_message.insert(END, os.path.abspath(filename)) # get the path
     filename.close()
 
 def save_file():
@@ -124,7 +126,7 @@ btn_browseFile = Button(window, width=20, text="Browse a file", font = ('arial '
 btn_browseFile.grid(row=3, column=1, padx=15, ipady=30)
 
 # Clear key & message
-btn_clear = Button(window, height =1 , width=20, text="Clear key & message", bg="#B8B8C7", fg="black", font = ('arial ', 9), command=clear_text)
+btn_clear = Button(window, height =1 , width=20, text="Clear key & message", bg="#B8B8C7", fg="black", font = ('arial ', 9), command=clear_messageKey)
 btn_clear.grid(row=5, column=1, pady=2)
 
 # OUTPUT MESSAGE
